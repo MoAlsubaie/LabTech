@@ -1,5 +1,6 @@
 
 import java.awt.Color;
+import javax.swing.JFrame;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -45,10 +46,16 @@ public class LabTach extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         searchPage = new javax.swing.JPanel();
         meddleBar = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
         exit = new javax.swing.JLabel();
         addPage = new javax.swing.JPanel();
-        meddleBar1 = new javax.swing.JPanel();
-        exit1 = new javax.swing.JLabel();
+        meddleBar4 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        exit3 = new javax.swing.JLabel();
+        contactPage = new javax.swing.JPanel();
+        meddleBar2 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        exit2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Lab Tech");
@@ -128,6 +135,11 @@ public class LabTach extends javax.swing.JFrame {
         );
 
         contact.setBackground(new java.awt.Color(60, 40, 91));
+        contact.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                contactMouseClicked(evt);
+            }
+        });
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-info-24.png"))); // NOI18N
 
@@ -188,11 +200,11 @@ public class LabTach extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(62, 62, 62)
                 .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 3, Short.MAX_VALUE)
+                .addGap(0, 14, Short.MAX_VALUE)
                 .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 5, Short.MAX_VALUE)
+                .addGap(0, 14, Short.MAX_VALUE)
                 .addComponent(contact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addContainerGap(177, Short.MAX_VALUE))
         );
 
         searchPage.setBackground(new java.awt.Color(255, 255, 255));
@@ -200,15 +212,23 @@ public class LabTach extends javax.swing.JFrame {
 
         meddleBar.setBackground(new java.awt.Color(122, 72, 221));
 
+        jLabel8.setText("Search");
+
         javax.swing.GroupLayout meddleBarLayout = new javax.swing.GroupLayout(meddleBar);
         meddleBar.setLayout(meddleBarLayout);
         meddleBarLayout.setHorizontalGroup(
             meddleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, meddleBarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel8)
+                .addGap(284, 284, 284))
         );
         meddleBarLayout.setVerticalGroup(
             meddleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 168, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, meddleBarLayout.createSequentialGroup()
+                .addContainerGap(81, Short.MAX_VALUE)
+                .addComponent(jLabel8)
+                .addGap(72, 72, 72))
         );
 
         exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-shutdown-30.png"))); // NOI18N
@@ -235,28 +255,37 @@ public class LabTach extends javax.swing.JFrame {
                 .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(meddleBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(253, Short.MAX_VALUE))
+                .addContainerGap(283, Short.MAX_VALUE))
         );
 
         addPage.setBackground(new java.awt.Color(255, 255, 255));
+        addPage.setPreferredSize(new java.awt.Dimension(629, 464));
 
-        meddleBar1.setBackground(new java.awt.Color(122, 72, 221));
+        meddleBar4.setBackground(new java.awt.Color(122, 72, 221));
 
-        javax.swing.GroupLayout meddleBar1Layout = new javax.swing.GroupLayout(meddleBar1);
-        meddleBar1.setLayout(meddleBar1Layout);
-        meddleBar1Layout.setHorizontalGroup(
-            meddleBar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        jLabel9.setText("add");
+
+        javax.swing.GroupLayout meddleBar4Layout = new javax.swing.GroupLayout(meddleBar4);
+        meddleBar4.setLayout(meddleBar4Layout);
+        meddleBar4Layout.setHorizontalGroup(
+            meddleBar4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, meddleBar4Layout.createSequentialGroup()
+                .addContainerGap(373, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addGap(260, 260, 260))
         );
-        meddleBar1Layout.setVerticalGroup(
-            meddleBar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 168, Short.MAX_VALUE)
+        meddleBar4Layout.setVerticalGroup(
+            meddleBar4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(meddleBar4Layout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addComponent(jLabel9)
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
-        exit1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-shutdown-30.png"))); // NOI18N
-        exit1.addMouseListener(new java.awt.event.MouseAdapter() {
+        exit3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-shutdown-30.png"))); // NOI18N
+        exit3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                exit1MouseClicked(evt);
+                exit3MouseClicked(evt);
             }
         });
 
@@ -264,20 +293,71 @@ public class LabTach extends javax.swing.JFrame {
         addPage.setLayout(addPageLayout);
         addPageLayout.setHorizontalGroup(
             addPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(meddleBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addPageLayout.createSequentialGroup()
-                .addContainerGap(583, Short.MAX_VALUE)
-                .addComponent(exit1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(addPageLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(exit3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addComponent(meddleBar4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         addPageLayout.setVerticalGroup(
             addPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addPageLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(exit1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(meddleBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(253, Short.MAX_VALUE))
+                .addGap(6, 6, 6)
+                .addComponent(exit3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(meddleBar4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(283, Short.MAX_VALUE))
+        );
+
+        contactPage.setBackground(new java.awt.Color(255, 255, 255));
+        contactPage.setPreferredSize(new java.awt.Dimension(629, 464));
+
+        meddleBar2.setBackground(new java.awt.Color(122, 72, 221));
+
+        jLabel10.setText("contact");
+
+        javax.swing.GroupLayout meddleBar2Layout = new javax.swing.GroupLayout(meddleBar2);
+        meddleBar2.setLayout(meddleBar2Layout);
+        meddleBar2Layout.setHorizontalGroup(
+            meddleBar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, meddleBar2Layout.createSequentialGroup()
+                .addContainerGap(365, Short.MAX_VALUE)
+                .addComponent(jLabel10)
+                .addGap(238, 238, 238))
+        );
+        meddleBar2Layout.setVerticalGroup(
+            meddleBar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(meddleBar2Layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(jLabel10)
+                .addContainerGap(96, Short.MAX_VALUE))
+        );
+
+        exit2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-shutdown-30.png"))); // NOI18N
+        exit2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exit2MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout contactPageLayout = new javax.swing.GroupLayout(contactPage);
+        contactPage.setLayout(contactPageLayout);
+        contactPageLayout.setHorizontalGroup(
+            contactPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contactPageLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(exit2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addComponent(meddleBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        contactPageLayout.setVerticalGroup(
+            contactPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contactPageLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(exit2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(meddleBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(283, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -286,26 +366,30 @@ public class LabTach extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(sidebar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 617, Short.MAX_VALUE))
+                .addGap(0, 619, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 330, Short.MAX_VALUE)
+                    .addGap(0, 332, Short.MAX_VALUE)
                     .addComponent(searchPage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 330, Short.MAX_VALUE)
-                    .addComponent(addPage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(0, 322, Short.MAX_VALUE)
+                    .addComponent(contactPage, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(0, 310, Short.MAX_VALUE)
+                    .addComponent(addPage, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(sidebar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(searchPage, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE))
+                .addComponent(searchPage, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(addPage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(contactPage, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(addPage, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE))
         );
-
-        addPage.getAccessibleContext().setAccessibleDescription("");
 
         pack();
         setLocationRelativeTo(null);
@@ -313,12 +397,8 @@ public class LabTach extends javax.swing.JFrame {
 
     private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
 
-        System.exit(0);
+         exit();
     }//GEN-LAST:event_exitMouseClicked
-
-    private void exit1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exit1MouseClicked
-       System.exit(0);
-    }//GEN-LAST:event_exit1MouseClicked
 
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
        
@@ -327,7 +407,7 @@ public class LabTach extends javax.swing.JFrame {
         contact.setBackground(def);
         searchPage.setVisible(false);
         addPage.setVisible(true); 
-        
+        contactPage.setVisible(false);
         
     }//GEN-LAST:event_addMouseClicked
 
@@ -337,7 +417,25 @@ public class LabTach extends javax.swing.JFrame {
         contact.setBackground(def);
         searchPage.setVisible(true);
         addPage.setVisible(false); 
+        contactPage.setVisible(false);
     }//GEN-LAST:event_searchMouseClicked
+
+    private void exit2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exit2MouseClicked
+        exit();
+    }//GEN-LAST:event_exit2MouseClicked
+
+    private void contactMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contactMouseClicked
+        search.setBackground(def);
+        add.setBackground(def);
+        contact.setBackground(clicked);
+        searchPage.setVisible(false);
+        addPage.setVisible(false); 
+        contactPage.setVisible(true);
+    }//GEN-LAST:event_contactMouseClicked
+
+    private void exit3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exit3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_exit3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -376,25 +474,37 @@ public class LabTach extends javax.swing.JFrame {
             
         });
     }
+    
+    public void exit (){
+        System.exit(0) ;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel add;
     private javax.swing.JPanel addPage;
     private javax.swing.JPanel contact;
+    private javax.swing.JPanel contactPage;
     private javax.swing.JLabel exit;
-    private javax.swing.JLabel exit1;
+    private javax.swing.JLabel exit2;
+    private javax.swing.JLabel exit3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel meddleBar;
-    private javax.swing.JPanel meddleBar1;
+    private javax.swing.JPanel meddleBar2;
+    private javax.swing.JPanel meddleBar3;
+    private javax.swing.JPanel meddleBar4;
     private javax.swing.JPanel search;
     private javax.swing.JPanel searchPage;
+    private javax.swing.JPanel searchPage1;
     private javax.swing.JPanel sidebar;
     // End of variables declaration//GEN-END:variables
 }
