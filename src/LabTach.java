@@ -434,7 +434,7 @@ public class LabTach extends javax.swing.JFrame {
     }//GEN-LAST:event_contactMouseClicked
 
     private void exit3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exit3MouseClicked
-        // TODO add your handling code here:
+        exit();
     }//GEN-LAST:event_exit3MouseClicked
 
     /**
