@@ -5,12 +5,13 @@ public class main {
         
         System.out.println("love");
         
-        spalsh s = new splash();
+        splash s = new splash();
         
+        s.setVisible(true);
         
         LabTach labTech = new LabTach();
         
-        labTech.setVisible(true);
+        s.setVisible(true);
     }
     
 }
