@@ -1,17 +1,21 @@
 
 public class main {
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         
-        System.out.println("love");
-        
+         
         splash s = new splash();
         
         s.setVisible(true);
         
+       Thread.sleep(2000); 
+        
+        
         LabTach labTech = new LabTach();
         
-        s.setVisible(true);
+        
+        labTech.setVisible(true);
+        s.dispose(); 
     }
     
 }

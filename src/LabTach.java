@@ -200,14 +200,14 @@ public class LabTach extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(62, 62, 62)
                 .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 14, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
                 .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 14, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
                 .addComponent(contact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(177, Short.MAX_VALUE))
+                .addGap(205, 205, 205))
         );
 
-        searchPage.setBackground(new java.awt.Color(255, 255, 255));
+        searchPage.setBackground(new java.awt.Color(204, 204, 204));
         searchPage.setPreferredSize(new java.awt.Dimension(629, 464));
 
         meddleBar.setBackground(new java.awt.Color(122, 72, 221));
@@ -258,7 +258,7 @@ public class LabTach extends javax.swing.JFrame {
                 .addContainerGap(283, Short.MAX_VALUE))
         );
 
-        addPage.setBackground(new java.awt.Color(255, 255, 255));
+        addPage.setBackground(new java.awt.Color(204, 204, 204));
         addPage.setPreferredSize(new java.awt.Dimension(629, 464));
 
         meddleBar4.setBackground(new java.awt.Color(122, 72, 221));
@@ -309,10 +309,11 @@ public class LabTach extends javax.swing.JFrame {
                 .addContainerGap(283, Short.MAX_VALUE))
         );
 
-        contactPage.setBackground(new java.awt.Color(255, 255, 255));
+        contactPage.setBackground(new java.awt.Color(204, 204, 204));
         contactPage.setPreferredSize(new java.awt.Dimension(629, 464));
 
         meddleBar2.setBackground(new java.awt.Color(122, 72, 221));
+        meddleBar2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel10.setText("contact");
 
@@ -500,11 +501,9 @@ public class LabTach extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel meddleBar;
     private javax.swing.JPanel meddleBar2;
-    private javax.swing.JPanel meddleBar3;
     private javax.swing.JPanel meddleBar4;
     private javax.swing.JPanel search;
     private javax.swing.JPanel searchPage;
-    private javax.swing.JPanel searchPage1;
     private javax.swing.JPanel sidebar;
     // End of variables declaration//GEN-END:variables
 }
