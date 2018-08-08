@@ -1,8 +1,11 @@
 
 import java.awt.Color;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -52,6 +55,7 @@ public class LabTach extends javax.swing.JFrame {
         add = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         contact = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -81,7 +85,7 @@ public class LabTach extends javax.swing.JFrame {
         testName = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        selection1 = new javax.swing.JComboBox();
+        selectionAdd = new javax.swing.JComboBox();
         exit3 = new javax.swing.JLabel();
         contactPage = new javax.swing.JPanel();
         meddleBar2 = new javax.swing.JPanel();
@@ -151,6 +155,8 @@ public class LabTach extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Add a new Tests");
 
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-lock-24.png"))); // NOI18N
+
         javax.swing.GroupLayout addLayout = new javax.swing.GroupLayout(add);
         add.setLayout(addLayout);
         addLayout.setHorizontalGroup(
@@ -160,7 +166,9 @@ public class LabTach extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel13)
+                .addGap(44, 44, 44))
         );
         addLayout.setVerticalGroup(
             addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,7 +176,9 @@ public class LabTach extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel13)))
                 .addContainerGap())
         );
 
@@ -265,7 +275,7 @@ public class LabTach extends javax.swing.JFrame {
 
             selection.setBackground(new java.awt.Color(60, 40, 91));
             selection.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-            selection.setForeground(new java.awt.Color(255, 255, 255));
+            selection.setForeground(new java.awt.Color(0, 0, 0));
             selection.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ASTM", "APHA", "UOP", "Others" }));
             selection.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -292,7 +302,7 @@ public class LabTach extends javax.swing.JFrame {
 
             jButton1.setBackground(new java.awt.Color(60, 40, 91));
             jButton1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-            jButton1.setForeground(new java.awt.Color(255, 255, 255));
+            jButton1.setForeground(new java.awt.Color(0, 0, 0));
             jButton1.setText("Search");
             jButton1.setBorder(null);
             jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -821,7 +831,7 @@ public class LabTach extends javax.swing.JFrame {
 
             jButton2.setBackground(new java.awt.Color(60, 40, 91));
             jButton2.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-            jButton2.setForeground(new java.awt.Color(255, 255, 255));
+            jButton2.setForeground(new java.awt.Color(0, 0, 0));
             jButton2.setText("Add");
             jButton2.setBorder(null);
             jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -833,13 +843,13 @@ public class LabTach extends javax.swing.JFrame {
             jLabel9.setForeground(new java.awt.Color(255, 255, 255));
             jLabel9.setText("Test name :");
 
-            selection1.setBackground(new java.awt.Color(60, 40, 91));
-            selection1.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-            selection1.setForeground(new java.awt.Color(255, 255, 255));
-            selection1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ASTM", "APHA", "UOP", "Others" }));
-            selection1.addActionListener(new java.awt.event.ActionListener() {
+            selectionAdd.setBackground(new java.awt.Color(60, 40, 91));
+            selectionAdd.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+            selectionAdd.setForeground(new java.awt.Color(0, 0, 0));
+            selectionAdd.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ASTM", "APHA", "UOP", "Others" }));
+            selectionAdd.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    selection1ActionPerformed(evt);
+                    selectionAddActionPerformed(evt);
                 }
             });
 
@@ -852,7 +862,7 @@ public class LabTach extends javax.swing.JFrame {
                     .addGroup(meddleBar4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(browseName, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(meddleBar4Layout.createSequentialGroup()
-                            .addComponent(selection1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(selectionAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(28, 28, 28)
                             .addComponent(jLabel9)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -874,13 +884,13 @@ public class LabTach extends javax.swing.JFrame {
                         .addGroup(meddleBar4Layout.createSequentialGroup()
                             .addGap(22, 22, 22)
                             .addGroup(meddleBar4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(Browse, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                                .addComponent(Browse, javax.swing.GroupLayout.PREFERRED_SIZE, 23, Short.MAX_VALUE)
                                 .addComponent(browseName))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                             .addGroup(meddleBar4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(testName, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel9)
-                                .addComponent(selection1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(selectionAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(meddleBar4Layout.createSequentialGroup()
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1114,20 +1124,48 @@ public class LabTach extends javax.swing.JFrame {
         if(file!=null && !testName.getText().trim().equals("")){
           
             
-                File out= new File("C:\\c\\LabTech\\Tests") ;
             
+               File path= new File("C:\\Users\\Public\\Documents\\LabTech\\Tests\\"
+                       +selectionAdd.getSelectedItem().toString() );
+               
+                if(!path.exists())
+                   path.mkdirs();
                 
-                    out.mkdirs();
-            
-            
-        }else{
-           JOptionPane.showMessageDialog(this, "Please enter all the informations"); 
+                File out = new File(path.getPath()+"\\"+testName.getText().trim()+file.getName());
+
+                if(!out.exists()){    
+             InputStream is = null;
+             OutputStream os = null;
+             try {
+        is = new FileInputStream(file);
+        os = new FileOutputStream(out);
+        byte[] buffer = new byte[1024];
+        int length;
+        while ((length = is.read(buffer)) > 0) {
+            os.write(buffer, 0, length);
         }
+    }       catch (IOException ex) {
+                Logger.getLogger(LabTach.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                   try {
+                       is.close();
+                       os.close();
+                   } catch (IOException ex) {
+                       Logger.getLogger(LabTach.class.getName()).log(Level.SEVERE, null, ex);
+                   }
+        
+       }
+             JOptionPane.showMessageDialog(this, "The Test added successfully");
+        }else{
+            JOptionPane.showMessageDialog(this, "The Test already Exists");
+                }
+        }else
+            JOptionPane.showMessageDialog(this, "Please enter all the informations");
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void selection1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selection1ActionPerformed
+    private void selectionAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectionAddActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_selection1ActionPerformed
+    }//GEN-LAST:event_selectionAddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1188,6 +1226,7 @@ public class LabTach extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1206,7 +1245,7 @@ public class LabTach extends javax.swing.JFrame {
     private javax.swing.JPanel search;
     private javax.swing.JPanel searchPage;
     private javax.swing.JComboBox selection;
-    private javax.swing.JComboBox selection1;
+    private javax.swing.JComboBox selectionAdd;
     private javax.swing.JPanel sidebar;
     private javax.swing.JTextField testName;
     // End of variables declaration//GEN-END:variables
