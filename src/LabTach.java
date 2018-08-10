@@ -1,15 +1,22 @@
 
 import java.awt.Color;
+import java.awt.Desktop;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
@@ -32,6 +39,8 @@ public class LabTach extends javax.swing.JFrame {
     Color def = new Color(60,40,91);
     Color clicked = new Color(85,65,116);
     File file ;
+    String test = "" ;
+    String user = "" ;
     /**
      * Creates new form NewJFrame
      */
@@ -86,7 +95,15 @@ public class LabTach extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         selectionAdd = new javax.swing.JComboBox();
+        username = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
         exit3 = new javax.swing.JLabel();
+        icon = new javax.swing.JLabel();
+        Edit = new javax.swing.JButton();
+        Delete = new javax.swing.JButton();
+        addedBy = new javax.swing.JTextField();
+        date = new javax.swing.JTextField();
+        TestName = new javax.swing.JTextField();
         contactPage = new javax.swing.JPanel();
         meddleBar2 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -100,6 +117,9 @@ public class LabTach extends javax.swing.JFrame {
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
             }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -853,47 +873,60 @@ public class LabTach extends javax.swing.JFrame {
                 }
             });
 
+            username.setBackground(new java.awt.Color(85, 65, 116));
+            username.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+            username.setForeground(new java.awt.Color(255, 255, 255));
+            username.setBorder(null);
+
+            jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+            jLabel14.setText("username :");
+
             javax.swing.GroupLayout meddleBar4Layout = new javax.swing.GroupLayout(meddleBar4);
             meddleBar4.setLayout(meddleBar4Layout);
             meddleBar4Layout.setHorizontalGroup(
                 meddleBar4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(meddleBar4Layout.createSequentialGroup()
-                    .addGap(87, 87, 87)
-                    .addGroup(meddleBar4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(browseName, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(meddleBar4Layout.createSequentialGroup()
-                            .addComponent(selectionAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(28, 28, 28)
-                            .addComponent(jLabel9)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(testName, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(106, 106, 106)
+                    .addComponent(browseName, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(Browse, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(159, Short.MAX_VALUE))
+                .addGroup(meddleBar4Layout.createSequentialGroup()
+                    .addGap(46, 46, 46)
                     .addGroup(meddleBar4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(meddleBar4Layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(Browse, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(meddleBar4Layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
+                            .addGap(12, 12, 12)
+                            .addComponent(jLabel9)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(testName, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel14)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(78, 78, 78)
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(59, 59, 59))))
+                            .addGap(23, 23, 23))
+                        .addGroup(meddleBar4Layout.createSequentialGroup()
+                            .addComponent(selectionAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             );
             meddleBar4Layout.setVerticalGroup(
                 meddleBar4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, meddleBar4Layout.createSequentialGroup()
-                    .addGroup(meddleBar4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(meddleBar4Layout.createSequentialGroup()
-                            .addGap(22, 22, 22)
-                            .addGroup(meddleBar4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(Browse, javax.swing.GroupLayout.PREFERRED_SIZE, 23, Short.MAX_VALUE)
-                                .addComponent(browseName))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                            .addGroup(meddleBar4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(testName, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel9)
-                                .addComponent(selectionAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(meddleBar4Layout.createSequentialGroup()
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(22, 22, 22)
+                    .addGroup(meddleBar4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(Browse, javax.swing.GroupLayout.PREFERRED_SIZE, 23, Short.MAX_VALUE)
+                        .addComponent(browseName))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                    .addComponent(selectionAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(meddleBar4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(testName, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel9)
+                        .addGroup(meddleBar4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14)))
                     .addContainerGap())
             );
 
@@ -904,15 +937,72 @@ public class LabTach extends javax.swing.JFrame {
                 }
             });
 
+            icon.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            icon.setForeground(new java.awt.Color(122, 72, 221));
+
+            Edit.setBackground(new java.awt.Color(60, 40, 91));
+            Edit.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+            Edit.setForeground(new java.awt.Color(0, 0, 0));
+            Edit.setText("Edit");
+            Edit.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    EditActionPerformed(evt);
+                }
+            });
+
+            Delete.setBackground(new java.awt.Color(60, 40, 91));
+            Delete.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+            Delete.setForeground(new java.awt.Color(0, 0, 0));
+            Delete.setText("Delete");
+            Delete.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    DeleteActionPerformed(evt);
+                }
+            });
+
+            addedBy.setBackground(new java.awt.Color(204, 204, 204));
+            addedBy.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            addedBy.setForeground(new java.awt.Color(122, 72, 221));
+            addedBy.setBorder(null);
+
+            date.setEditable(false);
+            date.setBackground(new java.awt.Color(204, 204, 204));
+            date.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            date.setForeground(new java.awt.Color(122, 72, 221));
+            date.setBorder(null);
+
+            TestName.setBackground(new java.awt.Color(204, 204, 204));
+            TestName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+            TestName.setForeground(new java.awt.Color(122, 72, 221));
+            TestName.setBorder(null);
+
             javax.swing.GroupLayout addPageLayout = new javax.swing.GroupLayout(addPage);
             addPage.setLayout(addPageLayout);
             addPageLayout.setHorizontalGroup(
                 addPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(addPageLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(exit3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap())
                 .addComponent(meddleBar4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(addPageLayout.createSequentialGroup()
+                    .addGroup(addPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addPageLayout.createSequentialGroup()
+                            .addGap(0, 0, Short.MAX_VALUE)
+                            .addComponent(exit3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(addPageLayout.createSequentialGroup()
+                            .addGroup(addPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(addPageLayout.createSequentialGroup()
+                                    .addGap(170, 170, 170)
+                                    .addGroup(addPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(addPageLayout.createSequentialGroup()
+                                            .addComponent(Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(87, 87, 87)
+                                            .addComponent(Delete))
+                                        .addComponent(addedBy, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(date, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(TestName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(addPageLayout.createSequentialGroup()
+                                    .addGap(257, 257, 257)
+                                    .addComponent(icon, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap())
             );
             addPageLayout.setVerticalGroup(
                 addPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -921,7 +1011,19 @@ public class LabTach extends javax.swing.JFrame {
                     .addComponent(exit3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(meddleBar4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(320, Short.MAX_VALUE))
+                    .addGap(27, 27, 27)
+                    .addComponent(icon, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(TestName, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(8, 8, 8)
+                    .addComponent(addedBy, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(8, 8, 8)
+                    .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(40, 40, 40)
+                    .addGroup(addPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Delete)
+                        .addComponent(Edit))
+                    .addContainerGap(80, Short.MAX_VALUE))
             );
 
             contactPage.setBackground(new java.awt.Color(204, 204, 204));
@@ -1027,6 +1129,8 @@ public class LabTach extends javax.swing.JFrame {
         searchPage.setVisible(false);
         addPage.setVisible(true); 
         contactPage.setVisible(false);
+        Edit.setVisible(false);
+        Delete.setVisible(false); 
         }
         
       
@@ -1043,7 +1147,7 @@ public class LabTach extends javax.swing.JFrame {
           
         passwordValue = password.getText();
        
-        if(passwordValue.equals(passwordKey.passwordKey)){
+        if(passwordValue.equals(passwordKey.KEY)){
             return true ;
         }else{
             
@@ -1100,7 +1204,7 @@ public class LabTach extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        LL.LL.PrintList();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BrowseActionPerformed
@@ -1121,7 +1225,7 @@ public class LabTach extends javax.swing.JFrame {
     }//GEN-LAST:event_browseNameActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if(file!=null && !testName.getText().trim().equals("")){
+        if(file!=null && !testName.getText().trim().equals("")&& !username.getText().trim().equals("")){
           
             
             
@@ -1131,7 +1235,7 @@ public class LabTach extends javax.swing.JFrame {
                 if(!path.exists())
                    path.mkdirs();
                 
-                File out = new File(path.getPath()+"\\"+testName.getText().trim()+file.getName());
+                File out = new File(path.getPath()+"\\"+file.getName());
 
                 if(!out.exists()){    
              InputStream is = null;
@@ -1155,7 +1259,53 @@ public class LabTach extends javax.swing.JFrame {
                    }
         
        }
-             JOptionPane.showMessageDialog(this, "The Test added successfully");
+             
+            
+             
+             
+             
+             
+              String f = out.getParent();
+             f = f.replace("\\", "/");
+            String ff [] = f.split("/");
+            
+            
+            TestFile tf = new TestFile();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            tf.setName(testName.getText());
+            tf.setType(ff[ff.length-1]); 
+            tf.setFile(out);
+            tf.setDateAdded(sdf.format(new Date()));
+            tf.setAddedBy(username.getText());
+            LL.LL.insert(tf);
+            test = tf.getName();
+            user = tf.getAddedBy();
+            
+             icon.addMouseListener(new MouseAdapter(){
+                     @Override
+                   public void mouseClicked(MouseEvent e){
+                    if(e.getClickCount()==2){
+                        open();
+                    }
+                }
+                });
+            
+            TestName.setText(tf.getName());
+            addedBy.setText(tf.getAddedBy()); 
+            date.setText(tf.getDateAdded());
+            Edit.setVisible(true);
+            Delete.setVisible(true);  
+            if(out.getName().endsWith("pdf")){
+                icon.setIcon(new ImageIcon("src/images/pdf.png")); 
+            }else if (out.getName().endsWith("docx")){
+                icon.setIcon(new ImageIcon("src/images/icons8-word-48.png")); 
+            }else{
+                icon.setIcon(new ImageIcon("src/images/icons8-document-48.png")); 
+            }
+            
+            
+            JOptionPane.showMessageDialog(this, "The Test added successfully");
+             
         }else{
             JOptionPane.showMessageDialog(this, "The Test already Exists");
                 }
@@ -1167,6 +1317,72 @@ public class LabTach extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_selectionAddActionPerformed
 
+    private void EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditActionPerformed
+       
+        boolean testchanged = !test.equalsIgnoreCase(TestName.getText());
+        boolean userchanged = !user.equalsIgnoreCase(addedBy.getText());
+      
+        if(testchanged || userchanged){
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog (null, "Would You Like to Edit the file ?","Edit",dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+        TestFile edit = LL.LL.findNode(test);
+        if(testchanged){
+            edit.setName(TestName.getText());     
+            test = TestName.getText();
+        }
+        if(userchanged){
+            edit.setAddedBy(addedBy.getText());
+            user = addedBy.getText();
+        }
+        
+        JOptionPane.showMessageDialog(null,"DONE "); 
+        }
+        
+        }else{
+           JOptionPane.showMessageDialog(null,"Nothing changes"); 
+        }
+    }//GEN-LAST:event_EditActionPerformed
+
+    private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog (null, "Would You Like to DELETE the file ?","Delete",dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+            TestFile delete = LL.LL.findNode(test) ;
+            if(delete.getFile().delete()){
+            LL.LL.delete(test);
+            icon.setIcon(null); 
+            TestName.setText("");
+            addedBy.setText("");
+            date.setText("");
+            Edit.setVisible(false);
+            Delete.setVisible(false); 
+            JOptionPane.showMessageDialog(null,"The File deleted seccesfully");
+            }else{
+                   JOptionPane.showMessageDialog(null,"Somthing Wrong happened Please try again later");
+            }
+            
+            }
+        
+    }//GEN-LAST:event_DeleteActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+       exit();
+    }//GEN-LAST:event_formWindowClosing
+
+    
+    public void open ( ){
+        File file = LL.LL.findNode(test).getFile() ;
+        
+        if (Desktop.isDesktopSupported()) {
+        try {
+       
+        Desktop.getDesktop().open(file);
+        } catch (IOException ex) {
+        JOptionPane.showMessageDialog(null, "Please Download the needed application to open the file");
+        }
+}
+    }
     /**
      * @param args the command line arguments
      */
@@ -1207,19 +1423,47 @@ public class LabTach extends javax.swing.JFrame {
     }
     
     public void exit (){
+    int dialogButton = JOptionPane.YES_NO_CANCEL_OPTION;
+    int dialogResult = JOptionPane.showConfirmDialog (null, "Would You Like to save the changes ?","Exit",dialogButton);
+    if(dialogResult == JOptionPane.YES_OPTION){
+        try{
+      FileOutputStream fout = new FileOutputStream(DataSaver.DS);
+      ObjectOutputStream out = new ObjectOutputStream(fout);
+      out.writeObject(LL.LL);
         System.exit(0) ;
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }else if(dialogResult == JOptionPane.NO_OPTION){
+         int dialogButton1 = JOptionPane.YES_NO_OPTION;
+    int dialogResult1 = JOptionPane.showConfirmDialog (null, "Are You sure ?","Exit",dialogButton1);
+    if(dialogResult1 == JOptionPane.YES_OPTION){
+        System.exit(0) ;
+    }else{
+       setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+    }    
+    }else{
+    setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+
+    }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Browse;
+    private javax.swing.JButton Delete;
+    private javax.swing.JButton Edit;
+    private javax.swing.JTextField TestName;
     private javax.swing.JPanel add;
     private javax.swing.JPanel addPage;
+    private javax.swing.JTextField addedBy;
     private javax.swing.JTextField browseName;
     private javax.swing.JPanel contact;
     private javax.swing.JPanel contactPage;
+    private javax.swing.JTextField date;
     private javax.swing.JLabel exit;
     private javax.swing.JLabel exit2;
     private javax.swing.JLabel exit3;
+    private javax.swing.JLabel icon;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -1227,6 +1471,7 @@ public class LabTach extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1248,5 +1493,6 @@ public class LabTach extends javax.swing.JFrame {
     private javax.swing.JComboBox selectionAdd;
     private javax.swing.JPanel sidebar;
     private javax.swing.JTextField testName;
+    private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }

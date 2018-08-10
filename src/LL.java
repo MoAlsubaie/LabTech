@@ -8,6 +8,6 @@
  *
  * @author user
  */
-public class passwordKey {
-    public static String KEY = "1957" ;
+public class LL {
+    public static LinkedList LL = new LinkedList() ;
 }
